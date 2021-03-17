@@ -2,7 +2,7 @@
 
 class SessStore {
 
-    constructor(checkPeriod = 3600, expires = 600) {
+    constructor(checkPeriod = 60, expires = 600) {
         this.store = {};
         this.checkTimerId = null;
         this.checkPeriod = checkPeriod; // in seconds
