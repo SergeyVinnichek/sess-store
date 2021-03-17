@@ -9,3 +9,11 @@ mySessionStore = new SessStore();
 ```
 
 ## Options
+
+# Author
+
+Sergey Vinnichek
+
+# License
+
+MIT
