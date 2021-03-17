@@ -1,10 +1,26 @@
 {
-    "author": {
-        "name": "Sergey Vinnichek",
-        "email": "hitslog@gmail.com"
-      },
-    "license": "MIT",
-    "main": "index.js",
-    "name": "sess-store",
-    "version": "1.0.0"
+  "name": "sess-store",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "author": {
+    "name": "Sergey Vinnichek",
+    "email": "sergeyvinnichek@gmail.com"
+  },
+  "keywords": [
+    "session",
+    "memory",
+    "store",
+    "sess-store",
+    "noleak",
+    "ram"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeyVinnichek/sess-store"
+  },
+  "bugs": {
+    "url": "https://github.com/SergeyVinnichek/sess-store/issues"
+  },
+  "homepage": "https://github.com/SergeyVinnichek/sess-store#readme"
 }
