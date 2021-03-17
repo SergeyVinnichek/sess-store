@@ -1,0 +1,10 @@
+{
+    "author": {
+        "name": "Sergey Vinnichek",
+        "email": "hitslog@gmail.com"
+      },
+    "license": "MIT",
+    "main": "index.js",
+    "name": "sess-store",
+    "version": "1.0.0"
+}
