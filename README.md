@@ -11,8 +11,10 @@ mySessionStore = new SessStore();
 ## Methods
 
 Constructor parameters: (checkPeriod, expires).
-CheckPeriod - interval for checking old sessions.
-Expires - live time for session.
+
+checkPeriod - interval for checking old sessions.
+
+expires - live time for session.
 
 - `set(id, session, callback)` method to add session to store.
 
