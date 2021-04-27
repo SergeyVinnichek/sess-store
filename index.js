@@ -3,7 +3,7 @@
 class SessStore {
 
     constructor(checkPeriod = 60, expires = 600) {
-        this.store = {};
+        this.store = new Map();
         this.checkTimerId = null;
         this.checkPeriod = checkPeriod; // in seconds
         this.expires = expires; // in seconds
@@ -13,17 +13,20 @@ class SessStore {
         var expires = new Date();
         expires.setSeconds(new Date().getSeconds() + this.expires);
         session.expires = expires;
-        this.store[id] = session;
+		this.store.set(id, session)
         callback();
     }
 
     get(id, callback) {
-        const session = this.store[id];
-        const now = new Date();
+		const session = this.store.get(id);
 
         if (session) {
-            if (session.expires < now)
+	        const now = new Date();
+
+            if (session.expires < now){
+				this.store.delete(id);
                 callback(null);
+			}
             else
                 callback(session);
         }
@@ -32,7 +35,7 @@ class SessStore {
     }
 
     destroy(id, callback) {
-        delete this.store[id];
+		this.store.delete(id);
         callback();
     }
 
@@ -54,7 +57,7 @@ class SessStore {
             const now = new Date();
             if (this.store[key]) {
                 if (now > this.store[key].expires)
-                    delete this.store[key];
+					this.store.delete(key);
             }
         }
     }
