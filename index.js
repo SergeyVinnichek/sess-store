@@ -13,20 +13,20 @@ class SessStore {
         var expires = new Date();
         expires.setSeconds(new Date().getSeconds() + this.expires);
         session.expires = expires;
-		this.store.set(id, session)
+        this.store.set(id, session)
         callback();
     }
 
     get(id, callback) {
-		const session = this.store.get(id);
+        const session = this.store.get(id);
 
         if (session) {
-	        const now = new Date();
+            const now = new Date();
 
-            if (session.expires < now){
-				this.store.delete(id);
+            if (session.expires < now) {
+                this.store.delete(id);
                 callback(null);
-			}
+            }
             else
                 callback(session);
         }
@@ -35,7 +35,7 @@ class SessStore {
     }
 
     destroy(id, callback) {
-		this.store.delete(id);
+        this.store.delete(id);
         callback();
     }
 
@@ -51,15 +51,11 @@ class SessStore {
     }
 
     shrinkStore() {
-        const keys = Object.keys(this.store);
+		const now = new Date();
 
-        for (const key of keys) {
-            const now = new Date();
-            if (this.store[key]) {
-                if (now > this.store[key].expires)
-					this.store.delete(key);
-            }
-        }
+		Array.from(this.store, ([key, value]) => {
+			if (now > value.expires) this.store.delete(key);
+		});
     }
 }
 
